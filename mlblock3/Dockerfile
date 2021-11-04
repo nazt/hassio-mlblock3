@@ -21,8 +21,6 @@ RUN \
         build-essential \
         nginx \
     \
-    && npm cache clean --force \
-    \
     && rm -fr \
         /tmp/* \
         /root/{.cache,.config,.gnupg,.local,.log,.npm} \
