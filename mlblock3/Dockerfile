@@ -17,7 +17,7 @@ RUN \
     && export MAKEFLAGS \
     \
     && apt-get update \
-    && apt-get install -y --no-install-recommends \
+    && apt-get install -y \
         build-essential \
         nginx \
     \
