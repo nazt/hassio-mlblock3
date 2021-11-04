@@ -10,15 +10,25 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # COPY rootfs/etc/pip.conf /etc/pip.conf
 
 # Setup base
-ARG BUILD_FROM
-FROM $BUILD_FROM
-
-# Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-COPY rootfs /
-
-RUN apk add --no-cache  \
-        openssh autossh nginx
+ARG BUILD_ARCH
+# hadolint ignore=DL3018,DL3008
+RUN \
+    MAKEFLAGS="-j$(nproc)" \
+    && export MAKEFLAGS \
+    \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        nginx \
+    \
+    && npm cache clean --force \
+    \
+    && rm -fr \
+        /tmp/* \
+        /root/{.cache,.config,.gnupg,.local,.log,.npm} \
+        /usr/local/share/.cache \
+        /var/{cache,log}/* \
+        /var/lib/apt/lists/*
 
 # Copy root filesystem
 COPY rootfs /
