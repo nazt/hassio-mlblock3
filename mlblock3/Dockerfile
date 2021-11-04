@@ -26,7 +26,9 @@ RUN \
         /root/{.cache,.config,.gnupg,.local,.log,.npm} \
         /usr/local/share/.cache \
         /var/{cache,log}/* \
-        /var/lib/apt/lists/*
+        /var/lib/apt/lists/* \
+    && mkdir -p /var/log/nginx \
+    && touch /var/log/nginx/error.log
 
 # Copy root filesystem
 COPY rootfs /
