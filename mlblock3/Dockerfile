@@ -18,9 +18,7 @@ RUN \
     \
     && apt-get update \
     && apt-get install -y \
-        build-essential \
         nginx \
-    \
     && rm -fr \
         /tmp/* \
         /root/{.cache,.config,.gnupg,.local,.log,.npm} \
