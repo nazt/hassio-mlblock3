@@ -5,7 +5,8 @@
 # ==============================================================================
 
 # Wait for JupyterLab to become available
-bashio::net.wait_for 28459
+# NAZT
+# bashio::net.wait_for 28459
 
 bashio::log.info "Starting NGinx..."
 exec nginx
