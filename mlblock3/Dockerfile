@@ -5,10 +5,6 @@ FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Copy Python requirements file
-COPY requirements.txt /opt/
-COPY rootfs/etc/pip.conf /etc/pip.conf
-
 # Setup base
 ARG BUILD_ARCH
 # hadolint ignore=DL3018,DL3008
@@ -47,31 +43,12 @@ RUN \
         nginx=1.14.2-2+deb10u3 \
         pandoc>=2.2.1-3 \
         pkg-config=0.29-6 \
-        python-dev=2.7.16-1 \
-        python3-dev=3.7.3-1 \
-        python3-distutils=3.7.3-1 \
-        python3-minimal=3.7.3-1 \
         zlib1g-dev=1:1.2.11.dfsg-1 \
     \
     && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     \
     && apt-get install -y --no-install-recommends \
         nodejs=12.22.0-1nodesource1 \
-    \
-    && curl https://bootstrap.pypa.io/get-pip.py | python3 \
-    \
-    && update-alternatives \
-        --install /usr/bin/python python /usr/bin/python3 10 \
-    \
-    && pip3 install --no-cache-dir numpy==1.20.2 \
-    && pip3 install --no-cache-dir -r /opt/requirements.txt \
-    \
-    && jupyter labextension install \
-        @jupyter-widgets/jupyterlab-manager@2.0.0 --no-build \
-    && jupyter labextension install @bokeh/jupyter_bokeh --no-build \
-    && jupyter labextension install @jupyterlab/github --no-build \
-    && jupyter serverextension enable jupyterlab_sql --py --sys-prefix \
-    && jupyter lab build \
     \
     && apt-get purge -y --auto-remove \
         build-essential \
@@ -90,14 +67,7 @@ RUN \
         libxslt1-dev \
         libzmq3-dev \
         pkg-config \
-        python-dev \
-        python3-dev \
         zlib1g-dev \
-    \
-    && find /usr/local/lib/python3.7/ -type d -name tests -depth -exec rm -rf {} \; \
-    && find /usr/local/lib/python3.7/ -type d -name test -depth -exec rm -rf {} \; \
-    && find /usr/local/lib/python3.7/ -name __pycache__ -depth -exec rm -rf {} \; \
-    && find /usr/local/lib/python3.7/ -name "*.pyc" -depth -exec rm -f {} \; \
     \
     && npm cache clean --force \
     \
