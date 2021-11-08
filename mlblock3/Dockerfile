@@ -15,8 +15,7 @@ RUN \
     && export MAKEFLAGS \
     \
     && apt-get update \
-    && apt-get install -y --no-install-recommends
-RUN build-essential nginx
+RUN apt-get install -y --no-install-recommendsinstall build-essential nginx
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y --no-install-recommends nodejs git
     # && apt-get purge -y --auto-remove \
