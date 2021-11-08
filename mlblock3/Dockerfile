@@ -45,6 +45,7 @@ RUN \
     # COPY yarn.lock ./
     # RUN yarn install --frozen-lockfile
     RUN npm install
+    RUN npm run build
     RUN npm cache clean --force \
     \
     && rm -fr \
