@@ -45,7 +45,9 @@ RUN \
     # COPY yarn.lock ./
     # RUN yarn install --frozen-lockfile
     RUN npm install
-    RUN npm run build
+    COPY --chown=nextjs:nodejs ./.next ./
+    COPY ./public ./
+    # RUN npm run build
     RUN npm cache clean --force \
     \
     && rm -fr \
