@@ -9,6 +9,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG BUILD_ARCH
 # hadolint ignore=DL3018,DL3008
 WORKDIR /app
+
+RUN ls
 RUN \
     MAKEFLAGS="-j$(nproc)" \
     && export MAKEFLAGS \
