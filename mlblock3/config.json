@@ -1,6 +1,6 @@
 {
   "name": "mlblock",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "slug": "mlblock",
   "description": "MLBLock3",
   "url": "https://github.com/nazt/hassio-mlblock3",
@@ -10,21 +10,11 @@
   "arch": ["aarch64", "amd64"],
   "homeassistant_api": true,
   "map": ["config:rw", "share:rw"],
-  "options": {
-    "github_access_token": "",
-    "system_packages": [],
-    "init_commands": []
-  },
+
   "ports": {
     "80/tcp": null
   },
   "ports_description": {
     "80/tcp": "Not required for Ingress"
-  },
-  "schema": {
-    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
-    "github_access_token": "password",
-    "system_packages": ["str"],
-    "init_commands": ["str"]
   }
 }
