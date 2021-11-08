@@ -41,7 +41,8 @@ RUN \
     #     pkg-config \
     #     zlib1g-dev \
     # \
-    COPY package.json yarn.lock ./
+    COPY package.json ./
+    # COPY yarn.lock ./
     RUN yarn install --frozen-lockfile
     RUN npm cache clean --force \
     \
