@@ -14,7 +14,7 @@ RUN \
     MAKEFLAGS="-j$(nproc)" \
     && export MAKEFLAGS \
     \
-    && apt-get update \
+    && apt-get update
 RUN apt-get install -y --no-install-recommendsinstall build-essential nginx
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y --no-install-recommends nodejs git
