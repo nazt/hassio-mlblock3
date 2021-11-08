@@ -1,0 +1,38 @@
+{
+  "../components/Sketch.tsx -> p5/lib/addons/p5.sound": {
+    "id": 42778,
+    "files": [
+      "static/chunks/031cc728.cdc0636e681888abdded.js"
+    ]
+  },
+  "../components/Sketch.tsx -> peerjs": {
+    "id": 55391,
+    "files": [
+      "static/chunks/391.c2e9947c9492156c1dfa.js",
+      "static/chunks/784.cc5b00e46ff269645df9.js"
+    ]
+  },
+  "../components/Sketch.tsx -> react-p5": {
+    "id": 34210,
+    "files": [
+      "static/chunks/fcfa8dee.0d6c89d023db33f903ef.js"
+    ]
+  },
+  "../node_modules/@web3-react/walletconnect-connector/dist/walletconnect-connector.esm.js -> @walletconnect/ethereum-provider": {
+    "id": 33006,
+    "files": [
+      "static/chunks/764-93cc2c0fbcbf3bd693f1.js",
+      "static/chunks/6.e414d5b0dca990c7b2e2.js",
+      "static/chunks/563.6e1e0a9b62559b6d7be0.js"
+    ]
+  },
+  "../node_modules/@web3-react/walletlink-connector/dist/walletlink-connector.esm.js -> walletlink": {
+    "id": 80983,
+    "files": [
+      "static/chunks/764-93cc2c0fbcbf3bd693f1.js",
+      "static/chunks/450-45d05310c2f3cf33ed06.js",
+      "static/chunks/983.afcfcde756586fb48e23.js",
+      "static/chunks/282.f68792365057806cb79d.js"
+    ]
+  }
+}

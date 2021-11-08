@@ -12,6 +12,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 ARG BUILD_ARCH
 # hadolint ignore=DL3018,DL3008
+WORKDIR /app
 RUN \
     MAKEFLAGS="-j$(nproc)" \
     && export MAKEFLAGS \
@@ -19,14 +20,20 @@ RUN \
     && apt-get update \
     && apt-get install -y \
         nginx \
-    && rm -fr \
-        /tmp/* \
-        /root/{.cache,.config,.gnupg,.local,.log,.npm} \
-        /usr/local/share/.cache \
-        /var/{cache,log}/* \
-        /var/lib/apt/lists/* \
-    && mkdir -p /var/log/nginx \
-    && touch /var/log/nginx/error.log
+    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+        \
+        && apt-get install -y --no-install-recommends \
+            nodejs=12.22.0-1nodesource1
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+RUN rm -fr \
+    /tmp/* \
+    /root/{.cache,.config,.gnupg,.local,.log,.npm} \
+    /usr/local/share/.cache \
+    /var/{cache,log}/* \
+    /var/lib/apt/lists/* \
+&& mkdir -p /var/log/nginx \
+&& touch /var/log/nginx/error.log
 
 # Copy root filesystem
 COPY rootfs /
