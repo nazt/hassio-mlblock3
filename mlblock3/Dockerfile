@@ -8,6 +8,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 ARG BUILD_ARCH
 # hadolint ignore=DL3018,DL3008
+WORKDIR /app
 RUN \
     MAKEFLAGS="-j$(nproc)" \
     && export MAKEFLAGS \
@@ -18,8 +19,7 @@ RUN \
     && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     \
     && apt-get install -y --no-install-recommends \
-        nodejs \
-    \
+        nodejs
     # && apt-get purge -y --auto-remove \
     #     build-essential \
     #     dirmngr \
@@ -39,7 +39,9 @@ RUN \
     #     pkg-config \
     #     zlib1g-dev \
     # \
-    && npm cache clean --force \
+    COPY package.json yarn.lock ./
+    RUN yarn install --frozen-lockfile
+    RUN npm cache clean --force \
     \
     && rm -fr \
         /tmp/* \
