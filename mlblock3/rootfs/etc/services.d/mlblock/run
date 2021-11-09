@@ -11,5 +11,5 @@
 bashio::log.info "Starting MLBLock"
 # exec nginx -g 'daemon off;error_log /dev/stdout debug;'
 cd /app
-ls -la
+ls -la  
 exec npm run start
