@@ -6,9 +6,9 @@
 declare admin_port
 
 ls -ail /usr/bin
-file /usr/bin/tempio
 cat /usr/bin/tempio
 echo "hello"
+ls /usr/bin/tempio
 
 # Generate Ingress configuration
 bashio::var.json \
