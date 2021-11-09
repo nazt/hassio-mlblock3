@@ -50,6 +50,9 @@ RUN \
     && rm -fr \
         /tmp/* \
         /etc/nginx
+    RUN curl -L -s -o /usr/bin/tempio \
+        "https://github.com/home-assistant/tempio/releases/download/2021.05.0/tempio_${BUILD_ARCH}" \
+    && chmod a+x /usr/bin/tempio \
 
 # Copy root filesystem
 COPY rootfs /
