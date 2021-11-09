@@ -6,6 +6,8 @@
 declare admin_port
 
 ls -ail /usr/bin
+file /usr/bin/tempio
+cat /usr/bin/tempio
 # Generate Ingress configuration
 bashio::var.json \
     interface "$(bashio::addon.ip_address)" \
