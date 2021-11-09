@@ -5,6 +5,7 @@
 # ==============================================================================
 declare admin_port
 
+ls -ail /usr/bin
 # Generate Ingress configuration
 bashio::var.json \
     interface "$(bashio::addon.ip_address)" \
