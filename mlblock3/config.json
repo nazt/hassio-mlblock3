@@ -1,6 +1,6 @@
 {
   "name": "MLBlock 3.0",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "slug": "mlblock",
   "description": "Flow-based programming for the Internet of Things",
   "url": "https://github.com/nazt/hassio-mlblock3",
