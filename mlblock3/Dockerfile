@@ -41,6 +41,7 @@ RUN \
         --no-appional \
         --no-update-notifier \
         --only=production \
+        --legacy-peer-deps \
         --unsafe-perm \
     \
     && npm cache clear --force \
