@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Home Assistant Community Add-on: Node-RED
-# Configures NGINX for use with Node-RED
+# Home Assistant Community Add-on: MLBlock
+# Configures NGINX for use with MLBlock
 # ==============================================================================
 declare admin_port
 
