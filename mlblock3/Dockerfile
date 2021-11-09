@@ -41,8 +41,8 @@ RUN apt-get install -y --no-install-recommends nodejs git
     # COPY yarn.lock ./
     # RUN yarn install --frozen-lockfile
     RUN npm install
-    COPY ./.next ./
-    COPY ./public ./
+    COPY ./.next /app/.next
+    COPY ./public /app/.public
     # RUN npm run build
     RUN npm cache clean --force \
     \
