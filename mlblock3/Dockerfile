@@ -19,6 +19,7 @@ RUN \
         libc-dev=0.7.2-r3 \
         linux-headers=5.10.41-r0 \
         make=4.3-r0 \
+        file \
         py3-pip=20.3.4-r1 \
         python3-dev=3.9.5-r1 \
     \
