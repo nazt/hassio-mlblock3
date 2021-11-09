@@ -1,59 +1,57 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/aarch64:10.2.0
+ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:10.2.0
+# hadolint ignore=DL3006
 FROM ${BUILD_FROM}
+
+# Copy Node-RED package.json
+COPY package.json /app/
+COPY ./.next /app/.next
+COPY ./public /app/.public
+
+
+# Set workdir
+WORKDIR /app
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
-ARG BUILD_ARCH
-# hadolint ignore=DL3018,DL3008
-WORKDIR /app
-
-RUN ls
 RUN \
-    MAKEFLAGS="-j$(nproc)" \
-    && export MAKEFLAGS \
+    apk add --no-cache --virtual .build-dependencies \
+        g++=10.3.1_git20210424-r2 \
+        gcc=10.3.1_git20210424-r2 \
+        libc-dev=0.7.2-r3 \
+        linux-headers=5.10.41-r0 \
+        make=4.3-r0 \
+        py3-pip=20.3.4-r1 \
+        python3-dev=3.9.5-r1 \
     \
-    && apt-get update
-RUN apt-get install -y --no-install-recommends build-essential nginx
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get install -y --no-install-recommends nodejs git
-    # && apt-get purge -y --auto-remove \
-    #     build-essential \
-    #     dirmngr \
-    #     gpg \
-    #     gpg-agent \
-    #     libffi-dev \
-    #     libfreetype6-dev \
-    #     libjpeg62-turbo-dev \
-    #     libmariadb-dev \
-    #     libpng-dev \
-    #     libpq-dev \
-    #     libssl-dev \
-    #     libtiff5-dev \
-    #     libxml2-dev \
-    #     libxslt1-dev \
-    #     libzmq3-dev \
-    #     pkg-config \
-    #     zlib1g-dev \
-    # \
-    COPY package.json ./
-    # COPY yarn.lock ./
-    # RUN yarn install --frozen-lockfile
-    RUN npm install
-    COPY ./.next /app/.next
-    COPY ./public /app/.public
-    # RUN npm run build
-    RUN npm cache clean --force \
+    && apk add --no-cache \
+        git=2.32.0-r0 \
+        nginx=1.20.1-r3 \
+        nodejs=14.18.1-r0 \
+        npm=7.17.0-r0 \
+        openssh-client=8.6_p1-r3 \
+        patch=2.7.6-r7 \
+        python3=3.9.5-r1 \
     \
+    && npm config set unsafe-perm true \
+    \
+    && npm install \
+        --no-audit \
+        --no-appional \
+        --no-update-notifier \
+        --only=production \
+        --unsafe-perm \
+    \
+    && npm cache clear --force \
+    \
+    && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
+    \
+    && apk del --no-cache --purge .build-dependencies \
     && rm -fr \
         /tmp/* \
-        /root/{.cache,.config,.gnupg,.local,.log,.npm} \
-        /usr/local/share/.cache \
-        /var/{cache,log}/* \
-        /var/lib/apt/lists/*
-    RUN mkdir -p /var/log/nginx && touch /var/log/nginx/error.log
-
+        /etc/nginx
+# RUN mkdir -p /var/log/nginx && touch /var/log/nginx/error.log
 
 
 # Copy root filesystem
