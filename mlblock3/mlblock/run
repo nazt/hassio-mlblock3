@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: JupyterLab
+# Runs the Nginx daemon
+# ==============================================================================
+
+# Wait for JupyterLab to become available
+# NAZT
+# bashio::net.wait_for 28459
+
+bashio::log.info "Starting MLBLock"
+# exec nginx -g 'daemon off;error_log /dev/stdout debug;'
+cd /app
+ls -la  
+exec npm run start
