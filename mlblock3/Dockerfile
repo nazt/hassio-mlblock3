@@ -13,9 +13,9 @@ FROM ${BUILD_FROM}
 WORKDIR /app
 
 COPY package.json /app/
-COPY ./.next /app/.next
-COPY ./public /app/public
-
+COPY ./app/.next /app/.next
+COPY ./app/public /app/public
+COPY ./out /app/out
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -52,6 +52,7 @@ RUN \
         --unsafe-perm \
     \
     && npm cache clear --force \
+    && npm i -g serve \
     \
     && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
     \
