@@ -20,4 +20,4 @@ bashio::log.info "Starting MLBlock..."
 # mkdir -p hello/hey
 # mv out hello/hey/
 echo "........"
-exec DEBUG=* serve --debug -p 3000 out
+exec serve --debug -p 3000 out
