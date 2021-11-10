@@ -113,7 +113,7 @@ function Sidebar() {
         }), /*#__PURE__*/jsx_runtime_.jsx("li", {
           className: "py-4 text-2xl font-bold lg:py-0 lg:text-base lg:font-normal",
           children: /*#__PURE__*/jsx_runtime_.jsx(next_link.default, {
-            href: "/mlblock",
+            href: "mlblock",
             children: /*#__PURE__*/jsx_runtime_.jsx("a", {
               className: "text-gray-600 hover:text-green-500 dark:text-white dark:hover:text-lime-400",
               onClick: closeMenu,

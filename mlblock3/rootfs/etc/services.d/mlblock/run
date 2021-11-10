@@ -1,0 +1,23 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: Node-RED
+# Starts Node-RED
+# ==============================================================================
+# export NODE_PATH=/opt/node_modules:/data/node_modules
+declare -a options
+
+# options+=(--settings "/etc/node-red/config.js")
+# options+=(--settings "/etc/node-red/config.js")
+
+# cd /opt || bashio::exit.nok "Could not change directory to Node-RED"
+
+cd /app
+ls -ail
+bashio::log.info "Starting MLBlock..."
+
+# exec npm start -- "${options[@]}"
+exec npm run start
+# mkdir -p hello/hey
+# mv out hello/hey/
+# echo "........"
+# exec serve --debug -p 3000 out

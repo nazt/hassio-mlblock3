@@ -869,7 +869,7 @@ let detectDomainLocale;
 
 if (false) {}
 
-const basePath =  false || '';
+const basePath = "/xxxmlblock" || 0;
 
 function buildCancellationError() {
   return Object.assign(new Error('Route Cancelled'), {
