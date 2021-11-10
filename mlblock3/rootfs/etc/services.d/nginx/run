@@ -8,4 +8,5 @@
 # bashio::net.wait_for 3000 localhost 300
 
 bashio::log.info "Starting NGinx..."
+bashio::log.info "Starting NGinx..."
 exec nginx
