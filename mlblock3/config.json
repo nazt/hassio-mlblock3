@@ -2,7 +2,7 @@
   "name": "MLBlock",
   "version": "3.1.8",
   "slug": "mlblock",
-  "description": "Flow-based programming for the Internet of Things",
+  "description": "Flow-based programming for Machine Learning on Web",
   "url": "https://github.com/nazt/hassio-mlblock3",
   "ingress": true,
   "ingress_port": 0,
