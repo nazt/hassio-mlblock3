@@ -56,7 +56,10 @@ RUN apt-get install -y --no-install-recommends nodejs git
         /usr/local/share/.cache \
         /var/{cache,log}/* \
         /var/lib/apt/lists/*
-    RUN mkdir -p /var/log/nginx && touch /var/log/nginx/error.log
+
+    RUN mkdir -p /var/log/nginx
+    RUN touch /var/log/nginx/error.log
+    RUN touch /var/log/nginx/access.log
 
 # Copy root filesystem
 COPY rootfs /
