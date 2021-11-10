@@ -14,7 +14,7 @@ WORKDIR /app
 
 COPY package.json /app/
 COPY ./.next /app/.next
-COPY ./public /app/.public
+COPY ./public /app/public
 
 
 # Set shell
