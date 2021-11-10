@@ -19,4 +19,5 @@ bashio::log.info "Starting MLBlock..."
 # exec npm run start
 # mkdir -p hello/hey
 # mv out hello/hey/
-exec DEBUG=* serve --debug out -p 3000
+echo "........"
+exec DEBUG=* serve --debug -p 3000 out
