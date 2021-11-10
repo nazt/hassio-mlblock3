@@ -1,68 +1,60 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:10.2.0
-# hadolint ignore=DL3006
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/aarch64:5.2.0
 FROM ${BUILD_FROM}
-
-# # Copy Node-RED package.json
-# COPY package.json /opt/
-
-# # Set workdir
-# WORKDIR /opt
-
-
- # Set workdir
-WORKDIR /app
-
-COPY package.json /app/
-COPY ./app/.next /app/.next
-COPY ./app/public /app/public
-COPY ./out /app/out
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
+ARG BUILD_ARCH
+# hadolint ignore=DL3018,DL3008
+WORKDIR /app
+
+RUN ls
 RUN \
-    apk add --no-cache --virtual .build-dependencies \
-        g++=10.3.1_git20210424-r2 \
-        gcc=10.3.1_git20210424-r2 \
-        libc-dev=0.7.2-r3 \
-        linux-headers=5.10.41-r0 \
-        make=4.3-r0 \
-        file \
-        py3-pip=20.3.4-r1 \
-        python3-dev=3.9.5-r1 \
+    MAKEFLAGS="-j$(nproc)" \
+    && export MAKEFLAGS \
     \
-    && apk add --no-cache \
-        git=2.32.0-r0 \
-        nginx=1.20.1-r3 \
-        nodejs=14.18.1-r0 \
-        npm=7.17.0-r0 \
-        openssh-client=8.6_p1-r3 \
-        patch=2.7.6-r7 \
-        python3=3.9.5-r1 \
+    && apt-get update
+RUN apt-get install -y --no-install-recommends build-essential nginx
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install -y --no-install-recommends nodejs git
+    # && apt-get purge -y --auto-remove \
+    #     build-essential \
+    #     dirmngr \
+    #     gpg \
+    #     gpg-agent \
+    #     libffi-dev \
+    #     libfreetype6-dev \
+    #     libjpeg62-turbo-dev \
+    #     libmariadb-dev \
+    #     libpng-dev \
+    #     libpq-dev \
+    #     libssl-dev \
+    #     libtiff5-dev \
+    #     libxml2-dev \
+    #     libxslt1-dev \
+    #     libzmq3-dev \
+    #     pkg-config \
+    #     zlib1g-dev \
+    # \
+    COPY package.json ./
+    # COPY yarn.lock ./
+    # RUN yarn install --frozen-lockfile
+    RUN npm install
+    COPY ./.next /app/.next
+    COPY ./public /app/public
+    # RUN npm run build
+    RUN curl -L -s -o /usr/bin/tempio \
+        "https://github.com/home-assistant/tempio/releases/download/2021.05.0/tempio_aarch64" && chmod a+x /usr/bin/tempio
+    RUN npm cache clean --force \
     \
-    && npm config set unsafe-perm true \
-    \
-    && npm install \
-        --no-audit \
-        --no-optional \
-        --no-update-notifier \
-        --only=production \
-        --legacy-peer-deps \
-        --unsafe-perm \
-    \
-    && npm cache clear --force \
-    && npm i -g serve \
-    \
-    && echo -e "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
-    \
-    && apk del --no-cache --purge .build-dependencies \
     && rm -fr \
         /tmp/* \
-        /etc/nginx
-
-RUN curl -L -s -o /usr/bin/tempio \
-        "https://github.com/home-assistant/tempio/releases/download/2021.05.0/tempio_aarch64" && chmod a+x /usr/bin/tempio
+        /root/{.cache,.config,.gnupg,.local,.log,.npm} \
+        /usr/local/share/.cache \
+        /var/{cache,log}/* \
+        /var/lib/apt/lists/*
+    RUN mkdir -p /var/log/nginx && touch /var/log/nginx/error.log
 
 # Copy root filesystem
 COPY rootfs /
@@ -76,23 +68,3 @@ ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
-
-# Labels
-LABEL \
-    io.hass.name="${BUILD_NAME}" \
-    io.hass.description="${BUILD_DESCRIPTION}" \
-    io.hass.arch="${BUILD_ARCH}" \
-    io.hass.type="addon" \
-    io.hass.version=${BUILD_VERSION} \
-    maintainer="Franck Nijhof <frenck@addons.community>" \
-    org.opencontainers.image.title="${BUILD_NAME}" \
-    org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
-    org.opencontainers.image.vendor="Home Assistant Community Add-ons" \
-    org.opencontainers.image.authors="Franck Nijhof <frenck@addons.community>" \
-    org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.url="https://addons.community" \
-    org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
-    org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
-    org.opencontainers.image.created=${BUILD_DATE} \
-    org.opencontainers.image.revision=${BUILD_REF} \
-    org.opencontainers.image.version=${BUILD_VERSION}
