@@ -8,7 +8,6 @@ declare admin_port
 # Generate Ingress configuration
 bashio::var.json \
     interface "$(bashio::addon.ip_address)" \
-    ingress_entry "^$(bashio::addon.ingress_entry)" \
     port "^$(bashio::addon.ingress_port)" |
     tempio \
         -template /etc/nginx/templates/ingress.gtpl \
