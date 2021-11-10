@@ -77,14 +77,14 @@ class mlxQuickDraw extends mlxElementOutput {
   }
 
   preload() {
-    this.img_1 = this.p5.loadImage('/assets_game/mlxQuickDraw/img1.png')
-    this.img_2 = this.p5.loadImage('/assets_game/mlxQuickDraw/img2.png')
-    this.img_3 = this.p5.loadImage('/assets_game/mlxQuickDraw/img3.png')
-    this.img_4 = this.p5.loadImage('/assets_game/mlxQuickDraw/img4.png')
-    this.img_5 = this.p5.loadImage('/assets_game/mlxQuickDraw/img5.png')
-    this.sound_blip = this.p5.loadSound('/assets_game/mlxQuickDraw/Blip.mp3')
-    this.sound_start = this.p5.loadSound('/assets_game/mlxQuickDraw/start.mp3')
-    this.font = this.p5.loadFont('/assets_game/mlxQuickDraw/JSJindara-Bold.otf')
+    this.img_1 = this.p5.loadImage('assets_game/mlxQuickDraw/img1.png')
+    this.img_2 = this.p5.loadImage('assets_game/mlxQuickDraw/img2.png')
+    this.img_3 = this.p5.loadImage('assets_game/mlxQuickDraw/img3.png')
+    this.img_4 = this.p5.loadImage('assets_game/mlxQuickDraw/img4.png')
+    this.img_5 = this.p5.loadImage('assets_game/mlxQuickDraw/img5.png')
+    this.sound_blip = this.p5.loadSound('assets_game/mlxQuickDraw/Blip.mp3')
+    this.sound_start = this.p5.loadSound('assets_game/mlxQuickDraw/start.mp3')
+    this.font = this.p5.loadFont('assets_game/mlxQuickDraw/JSJindara-Bold.otf')
   }
 
   setup() {

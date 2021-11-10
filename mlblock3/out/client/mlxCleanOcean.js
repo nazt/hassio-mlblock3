@@ -69,17 +69,17 @@ class mlxCleanOceanGame extends mlxElementLocakableOutput {
   }
 
   preload() {
-    this.img_top = this.p5.loadImage('/assets_game/mlxCleanOceanGame/top.png')
-    this.img_base = this.p5.loadImage('/assets_game/mlxCleanOceanGame/baselayer.png')
-    this.img_boat = this.p5.loadImage('/assets_game/mlxCleanOceanGame/boat.png')
-    this.img_bin = this.p5.loadImage('/assets_game/mlxCleanOceanGame/bin.png')
-    this.img_logo = this.p5.loadImage('/assets_game/mlxCleanOceanGame/whalelogo.png')
-    this.img_waiting = this.p5.loadImage('/assets_game/mlxCleanOceanGame/waiting.png')
-    this.s_pickup = this.p5.loadSound('/assets_game/mlxCleanOceanGame/pickup.mp3')
-    this.s_collect = this.p5.loadSound('/assets_game/mlxCleanOceanGame/collect.mp3')
-    this.s_music = this.p5.loadSound('/assets_game/mlxCleanOceanGame/music.mp3')
+    this.img_top = this.p5.loadImage('assets_game/mlxCleanOceanGame/top.png')
+    this.img_base = this.p5.loadImage('assets_game/mlxCleanOceanGame/baselayer.png')
+    this.img_boat = this.p5.loadImage('assets_game/mlxCleanOceanGame/boat.png')
+    this.img_bin = this.p5.loadImage('assets_game/mlxCleanOceanGame/bin.png')
+    this.img_logo = this.p5.loadImage('assets_game/mlxCleanOceanGame/whalelogo.png')
+    this.img_waiting = this.p5.loadImage('assets_game/mlxCleanOceanGame/waiting.png')
+    this.s_pickup = this.p5.loadSound('assets_game/mlxCleanOceanGame/pickup.mp3')
+    this.s_collect = this.p5.loadSound('assets_game/mlxCleanOceanGame/collect.mp3')
+    this.s_music = this.p5.loadSound('assets_game/mlxCleanOceanGame/music.mp3')
     for (var i = 0; i < 10; i++) {
-      this.trashImage[i] = this.p5.loadImage('/assets_game/mlxCleanOceanGame/trash' + (i + 1) + '.png')
+      this.trashImage[i] = this.p5.loadImage('assets_game/mlxCleanOceanGame/trash' + (i + 1) + '.png')
     }
   }
 

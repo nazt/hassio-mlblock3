@@ -184,25 +184,25 @@ class mlxMaskGame extends mlxElementLocakableOutput {
   }
 
   preload() {
-    this.img_n1 = this.p5.loadImage('/assets_game/mlxMask/nose1.png')
-    this.img_n2 = this.p5.loadImage('/assets_game/mlxMask/nose2.png')
-    this.img_n3 = this.p5.loadImage('/assets_game/mlxMask/nose3.png')
-    this.img_n4 = this.p5.loadImage('/assets_game/mlxMask/nose4.png')
-    this.img_n5 = this.p5.loadImage('/assets_game/mlxMask/nose5.png')
+    this.img_n1 = this.p5.loadImage('assets_game/mlxMask/nose1.png')
+    this.img_n2 = this.p5.loadImage('assets_game/mlxMask/nose2.png')
+    this.img_n3 = this.p5.loadImage('assets_game/mlxMask/nose3.png')
+    this.img_n4 = this.p5.loadImage('assets_game/mlxMask/nose4.png')
+    this.img_n5 = this.p5.loadImage('assets_game/mlxMask/nose5.png')
 
-    this.img_el1 = this.p5.loadImage('/assets_game/mlxMask/leftEye1.png')
-    this.img_el2 = this.p5.loadImage('/assets_game/mlxMask/leftEye2.png')
-    this.img_el3 = this.p5.loadImage('/assets_game/mlxMask/leftEye3.png')
-    this.img_el4 = this.p5.loadImage('/assets_game/mlxMask/leftEye4.png')
-    this.img_el5 = this.p5.loadImage('/assets_game/mlxMask/leftEye5.png')
+    this.img_el1 = this.p5.loadImage('assets_game/mlxMask/leftEye1.png')
+    this.img_el2 = this.p5.loadImage('assets_game/mlxMask/leftEye2.png')
+    this.img_el3 = this.p5.loadImage('assets_game/mlxMask/leftEye3.png')
+    this.img_el4 = this.p5.loadImage('assets_game/mlxMask/leftEye4.png')
+    this.img_el5 = this.p5.loadImage('assets_game/mlxMask/leftEye5.png')
 
-    this.img_er1 = this.p5.loadImage('/assets_game/mlxMask/rightEye1.png')
-    this.img_er2 = this.p5.loadImage('/assets_game/mlxMask/rightEye2.png')
-    this.img_er3 = this.p5.loadImage('/assets_game/mlxMask/rightEye3.png')
-    this.img_er4 = this.p5.loadImage('/assets_game/mlxMask/rightEye4.png')
-    this.img_er5 = this.p5.loadImage('/assets_game/mlxMask/rightEye5.png')
+    this.img_er1 = this.p5.loadImage('assets_game/mlxMask/rightEye1.png')
+    this.img_er2 = this.p5.loadImage('assets_game/mlxMask/rightEye2.png')
+    this.img_er3 = this.p5.loadImage('assets_game/mlxMask/rightEye3.png')
+    this.img_er4 = this.p5.loadImage('assets_game/mlxMask/rightEye4.png')
+    this.img_er5 = this.p5.loadImage('assets_game/mlxMask/rightEye5.png')
 
-    this.img_waiting = this.p5.loadImage('/assets_game/mlxMask/waiting_mobile.png')
+    this.img_waiting = this.p5.loadImage('assets_game/mlxMask/waiting_mobile.png')
 
     //shutter sound for screen capture
     this.beepSound = this.p5.loadSound('/assets/shutterbeep.mp3')

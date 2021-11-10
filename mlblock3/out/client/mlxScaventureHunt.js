@@ -77,14 +77,14 @@ class mlxScaventureHunt extends mlxElementOutput {
   }
 
   preload() {
-    this.img_1 = this.p5.loadImage('/assets_game/mlxScaventureHunt/simg1.png')
-    this.img_2 = this.p5.loadImage('/assets_game/mlxScaventureHunt/simg2.png')
-    this.img_3 = this.p5.loadImage('/assets_game/mlxScaventureHunt/simg3.png')
-    this.img_4 = this.p5.loadImage('/assets_game/mlxScaventureHunt/simg4.png')
-    this.img_5 = this.p5.loadImage('/assets_game/mlxScaventureHunt/simg5.png')
-    this.sound_blip = this.p5.loadSound('/assets_game/mlxScaventureHunt/Blip.mp3')
-    this.sound_start = this.p5.loadSound('/assets_game/mlxScaventureHunt/start.mp3')
-    this.font = this.p5.loadFont('/assets_game/mlxScaventureHunt/JSJindara-Bold.otf')
+    this.img_1 = this.p5.loadImage('assets_game/mlxScaventureHunt/simg1.png')
+    this.img_2 = this.p5.loadImage('assets_game/mlxScaventureHunt/simg2.png')
+    this.img_3 = this.p5.loadImage('assets_game/mlxScaventureHunt/simg3.png')
+    this.img_4 = this.p5.loadImage('assets_game/mlxScaventureHunt/simg4.png')
+    this.img_5 = this.p5.loadImage('assets_game/mlxScaventureHunt/simg5.png')
+    this.sound_blip = this.p5.loadSound('assets_game/mlxScaventureHunt/Blip.mp3')
+    this.sound_start = this.p5.loadSound('assets_game/mlxScaventureHunt/start.mp3')
+    this.font = this.p5.loadFont('assets_game/mlxScaventureHunt/JSJindara-Bold.otf')
   }
 
   setup() {
