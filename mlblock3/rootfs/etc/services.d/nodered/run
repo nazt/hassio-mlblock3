@@ -17,4 +17,6 @@ bashio::log.info "Starting MLBlock..."
 
 # exec npm start -- "${options[@]}"
 # exec npm run start
-exec serve out -p 3000
+mkdir -p hello/hey
+mv out hello/hey/
+exec serve hello -p 3000
