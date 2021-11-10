@@ -2,11 +2,20 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:10.2.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
-# Copy Node-RED package.json
-COPY package.json /opt/
+# # Copy Node-RED package.json
+# COPY package.json /opt/
 
-# Set workdir
-WORKDIR /opt
+# # Set workdir
+# WORKDIR /opt
+
+
+ # Set workdir
+WORKDIR /app
+
+COPY package.json /app/
+COPY ./.next /app/.next
+COPY ./public /app/.public
+
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

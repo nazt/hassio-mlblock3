@@ -11,7 +11,7 @@ declare -a options
 
 # cd /opt || bashio::exit.nok "Could not change directory to Node-RED"
 
-bashio::log.info "Starting Node-RED..."
+bashio::log.info "Starting MLBlock..."
 
 # exec npm start -- "${options[@]}"
-exec npm start
+exec npm run start
