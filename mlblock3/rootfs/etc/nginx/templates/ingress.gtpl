@@ -9,5 +9,10 @@ server {
         deny    all;
 
         proxy_pass http://backend;
+
+        sub_filter_once off;
+        sub_filter_types *;
+
+         sub_filter '/xxxmlblock/' '{{ .ingress_entry }}/';
     }
 }
