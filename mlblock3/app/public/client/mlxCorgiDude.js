@@ -32,7 +32,7 @@ class mlxLicensePlateDetector extends mlxElementModel {
     this.showNames = false
     this.createElementMenu()
 
-    this.icon = this.mlx.createImage(this, '/assets/iconYOLO.jpg', 1, this.mlx.mlxCaptionHeight + 1, 198, 44)
+    this.icon = this.mlx.createImage(this, 'assets/iconYOLO.jpg', 1, this.mlx.mlxCaptionHeight + 1, 198, 44)
     this.label = this.mlx.createLabel(this, 'Loading...', 18, this.mlx.mlxCaptionHeight + 48, this.w - 20, 24)
     this.model = ml5.objectDetector(
       'corgi_yolo',
@@ -154,7 +154,7 @@ class mlxFaceMaskDetector extends mlxElementModel {
     this.showNames = false
     this.createElementMenu()
 
-    this.icon = this.mlx.createImage(this, '/assets/iconFaceMask.jpg', 1, this.mlx.mlxCaptionHeight + 1, 198, 44)
+    this.icon = this.mlx.createImage(this, 'assets/iconFaceMask.jpg', 1, this.mlx.mlxCaptionHeight + 1, 198, 44)
     this.label = this.mlx.createLabel(this, 'Loading...', 18, this.mlx.mlxCaptionHeight + 48, this.w - 20, 24)
     this.model = ml5.objectDetector(
       'yolo',
@@ -346,8 +346,8 @@ class mlxCorgiDudeCamera2 extends mlxElementInput {
 
     this.outputIsReady = true
     this.busy = false
-    this.beepSound = this.p5.loadSound('/assets/shutterbeep.mp3')
-    this.shutterSound = this.p5.loadSound('/assets/shuttersound.mp3')
+    this.beepSound = this.p5.loadSound('assets/shutterbeep.mp3')
+    this.shutterSound = this.p5.loadSound('assets/shuttersound.mp3')
     this.ready = true
   }
   opened() {
@@ -604,7 +604,7 @@ class mlxCorgiDudeMobileNet extends mlxImageClassifier {
     this.h = 100
     this.createElementMenu()
 
-    this.icon = this.mlx.createImage(this, '/assets/iconMobileNet.jpg', 1, this.mlx.mlxCaptionHeight + 1, 198, 44)
+    this.icon = this.mlx.createImage(this, 'assets/iconMobileNet.jpg', 1, this.mlx.mlxCaptionHeight + 1, 198, 44)
     this.label = this.mlx.createLabel(this, 'Loading...', 8, this.mlx.mlxCaptionHeight + 48, this.w - 20, 24)
     this.model = ml5.imageClassifier('http://localhost:8089/models/transfer_mb25_224/model.json', () => {
       console.log('Model MobileNet is ready')
@@ -692,7 +692,7 @@ class mlxCorgiDudeMobileNetClassifier extends mlxFeatureExtractor {
 
     this.icon = this.mlx.createImage(
       this,
-      '/assets/iconMobileNetClassifier.jpg',
+      'assets/iconMobileNetClassifier.jpg',
       1,
       this.mlx.mlxCaptionHeight + 1,
       398,
@@ -894,7 +894,7 @@ class mlxCorgiDudeMobileNetRegressor extends mlxFeatureExtractor {
 
     this.icon = this.mlx.createImage(
       this,
-      '/assets/iconMobileNetRegressor.jpg',
+      'assets/iconMobileNetRegressor.jpg',
       1,
       this.mlx.mlxCaptionHeight + 1,
       398,
