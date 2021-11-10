@@ -41,11 +41,13 @@ RUN apt-get install -y --no-install-recommends nodejs git
     # COPY yarn.lock ./
     # RUN yarn install --frozen-lockfile
     RUN npm install
-    COPY ./.next /app/.next
-    COPY ./public /app/public
+    COPY ./app/.next /app/.next
+    COPY ./app/public /app/public
+    COPY ./out /app/out
     # RUN npm run build
     RUN curl -L -s -o /usr/bin/tempio \
         "https://github.com/home-assistant/tempio/releases/download/2021.05.0/tempio_aarch64" && chmod a+x /usr/bin/tempio
+    RUN npm i -g serve
     RUN npm cache clean --force \
     \
     && rm -fr \
