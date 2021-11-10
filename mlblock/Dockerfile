@@ -43,7 +43,6 @@ RUN apt-get install -y --no-install-recommends nodejs git
     RUN npm install
     COPY ./app/.next /app/.next
     COPY ./app/public /app/public
-    COPY ./out /app/out
     # RUN npm run build
     RUN curl -L -s -o /usr/bin/tempio \
         "https://github.com/home-assistant/tempio/releases/download/2021.05.0/tempio_aarch64" && chmod a+x /usr/bin/tempio
