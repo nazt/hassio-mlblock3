@@ -1,38 +1,38 @@
 {
   "../components/Sketch.tsx -> p5/lib/addons/p5.sound": {
-    "id": 42778,
+    "id": 2778,
     "files": [
-      "static/chunks/031cc728.cdc0636e681888abdded.js"
+      "static/chunks/031cc728.9eaf42db72204a99c020.js"
     ]
   },
   "../components/Sketch.tsx -> peerjs": {
-    "id": 55391,
+    "id": 5391,
     "files": [
-      "static/chunks/391.c2e9947c9492156c1dfa.js",
-      "static/chunks/784.cc5b00e46ff269645df9.js"
+      "static/chunks/391.6714d6af75ca2dfd1580.js",
+      "static/chunks/784.ac5e4d7fc7fb5a5fc8e4.js"
     ]
   },
   "../components/Sketch.tsx -> react-p5": {
-    "id": 34210,
+    "id": 4210,
     "files": [
-      "static/chunks/fcfa8dee.0d6c89d023db33f903ef.js"
+      "static/chunks/fcfa8dee.d64722768555fcb81092.js"
     ]
   },
   "../node_modules/@web3-react/walletconnect-connector/dist/walletconnect-connector.esm.js -> @walletconnect/ethereum-provider": {
-    "id": 33006,
+    "id": 3006,
     "files": [
-      "static/chunks/764-93cc2c0fbcbf3bd693f1.js",
-      "static/chunks/6.e414d5b0dca990c7b2e2.js",
-      "static/chunks/563.6e1e0a9b62559b6d7be0.js"
+      "static/chunks/764-fb43d38eb5d22b01166c.js",
+      "static/chunks/505-52cc3dd093025a07d924.js",
+      "static/chunks/6.54b4b1e2f24a23e6806a.js",
+      "static/chunks/563.74ee2558acf267b00455.js"
     ]
   },
   "../node_modules/@web3-react/walletlink-connector/dist/walletlink-connector.esm.js -> walletlink": {
-    "id": 80983,
+    "id": 983,
     "files": [
-      "static/chunks/764-93cc2c0fbcbf3bd693f1.js",
-      "static/chunks/450-45d05310c2f3cf33ed06.js",
-      "static/chunks/983.afcfcde756586fb48e23.js",
-      "static/chunks/282.f68792365057806cb79d.js"
+      "static/chunks/764-fb43d38eb5d22b01166c.js",
+      "static/chunks/983.70f3a2594b29828320ef.js",
+      "static/chunks/282.dd6b7343783ccedb1256.js"
     ]
   }
 }
