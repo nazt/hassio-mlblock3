@@ -1,8 +1,8 @@
 {
   "name": "MLBlock",
-  "version": "3.2.8",
+  "version": "3.2.9",
   "slug": "mlblock",
-  "description": "Flow-based programming for Machine Learning on Web",
+  "description": "Block-based programming for Machine Learning on the Web",
   "url": "https://github.com/nazt/hassio-mlblock3",
   "ingress": true,
   "ingress_port": 0,
